@@ -12,16 +12,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "My Personal Website",
-  description: "Welcome to my personal website, showcasing my projects and portfolio.",
+  title: "ASCII Art Website",
+  description: "A website showcasing animated ASCII art.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body style={{ margin: 0, padding: 0, overflow: "hidden" }}>
         {children}
       </body>
     </html>
