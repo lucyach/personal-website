@@ -8,7 +8,7 @@
     "start": "next start && node app/ascii-art.js",
     "lint": "next lint",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d out"
+    "deploy": "npm run build"
   },
   "dependencies": {
     "next": "15.3.2",

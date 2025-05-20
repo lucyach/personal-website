@@ -26,7 +26,7 @@ You can edit the content by modifying files in the `app` directory. The changes 
 
 ## Deployment
 
-The website can be deployed using [Vercel](https://vercel.com). For more details, refer to the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
+The website can be deployed using [Vercel](https://vercel.com) or GitHub Pages. For GitHub Pages, ensure the `next.config.js` file includes `output: 'export'`. For more details, refer to the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
 
 ## Learn More
 
