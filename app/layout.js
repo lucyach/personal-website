@@ -12,8 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "ASCII Art Website",
-  description: "A website showcasing animated ASCII art.",
+  title: "Lucy Acheson",
+  description: "Lucy Acheson Personal Website.",
 };
 
 export default function RootLayout({ children }) {
