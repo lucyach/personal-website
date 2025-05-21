@@ -59,7 +59,7 @@ export default function LastPlayed() {
         fontFamily: "Comic Sans MS, Comic Sans, cursive",
       }}
     >
-      <h2 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>Now Playing</h2>
+      <h2 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>Lucy Is Now Playing</h2>
       <div style={{ fontSize: "0.9rem", overflow: "hidden" }}>
         {error ? (
           <span style={{ color: "red" }}>{error}</span>

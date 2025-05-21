@@ -16,9 +16,9 @@ export default function HomePage() {
         padding: "2rem",
       }}
     >
-      <div style={{ textAlign: "center", flex: 1 }}>
-        <h1>Lucy Acheson</h1>
-        <p>Click below to look at my projects.</p>
+      <div style={{ textAlign: "center", flex: 1, fontFamily: "Comic Sans MS, Comic Sans, cursive" }}>
+        <h1 style={{ fontFamily: "Comic Sans MS, Comic Sans, cursive" }}>Lucy Acheson</h1>
+        <p style={{ fontFamily: "Comic Sans MS, Comic Sans, cursive" }}>Click below to look at my projects.</p>
         <br></br>
         <div style={{ margin: "1rem 0" }}>
           <a
@@ -32,6 +32,7 @@ export default function HomePage() {
               color: "#483A58",
               textDecoration: "none",
               borderRadius: "5px",
+              fontFamily: "Comic Sans MS, Comic Sans, cursive", // Ensure Comic Sans for buttons
             }}
           >
             GitHub
@@ -47,6 +48,7 @@ export default function HomePage() {
               color: "#483A58",
               textDecoration: "none",
               borderRadius: "5px",
+              fontFamily: "Comic Sans MS, Comic Sans, cursive", // Ensure Comic Sans for buttons
             }}
           >
             LinkedIn
@@ -62,6 +64,7 @@ export default function HomePage() {
               color: "#483A58",
               textDecoration: "none",
               borderRadius: "5px",
+              fontFamily: "Comic Sans MS, Comic Sans, cursive", // Ensure Comic Sans for buttons
             }}
           >
             The Stoning Website
@@ -77,6 +80,7 @@ export default function HomePage() {
               color: "#483A58",
               textDecoration: "none",
               borderRadius: "5px",
+              fontFamily: "Comic Sans MS, Comic Sans, cursive", // Ensure Comic Sans for buttons
             }}
           >
             Resume
@@ -90,6 +94,7 @@ export default function HomePage() {
               color: "#483A58",
               textDecoration: "none",
               borderRadius: "5px",
+              fontFamily: "Comic Sans MS, Comic Sans, cursive", // Ensure Comic Sans for buttons
             }}
           >
             Contact Me
