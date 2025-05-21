@@ -9,7 +9,8 @@ export default function LastPlayed() {
     const fetchLastTrack = async () => {
       try {
         if (!process.env.NEXT_PUBLIC_LASTFM_API_KEY) {
-          throw new Error("Missing Last.fm API key");
+          setError("Missing Last.fm API key. Please configure it in your environment.");
+          return;
         }
 
         const response = await fetch(
@@ -21,6 +22,11 @@ export default function LastPlayed() {
         }
 
         const data = await response.json();
+
+        if (!data || !data.recenttracks || !data.recenttracks.track || !data.recenttracks.track.length) {
+          throw new Error("Invalid response from Last.fm API");
+        }
+
         const track = data.recenttracks.track[0];
 
         setLastTrack({
@@ -64,7 +70,7 @@ export default function LastPlayed() {
         {error ? (
           <span style={{ color: "red" }}>{error}</span>
         ) : !lastTrack ? (
-          <span>Loading...</span>
+          <span>{error ? "Error loading track" : "Loading..."}</span>
         ) : (
           <span>{trackText}</span>
         )}
