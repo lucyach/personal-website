@@ -1,0 +1,50 @@
+1:"$Sreact.fragment"
+2:I[7555,[],""]
+3:I[1295,[],""]
+4:I[47,["974","static/chunks/app/page-3ab0bb46c5106d8f.js"],"default"]
+6:I[9665,[],"MetadataBoundary"]
+8:I[9665,[],"OutletBoundary"]
+b:I[4911,[],"AsyncMetadataOutlet"]
+d:I[9665,[],"ViewportBoundary"]
+f:I[6614,[],""]
+:HL["/personalwebsite/_next/static/css/1b6d9da5b8dcd694.css","style"]
+5:T45b,
+                           .-----.
+                         .'       `.
+                        :      ^v^  :
+                        :           :
+                        '           '
+         |~        www   `.       .'
+        /.       /#^^\_   `-/\--'
+       /#  \     /#%    \   /# \
+      /#%   \   /#%______\ /#%__\
+     /#%     \   |= I I ||  |- |
+     ~~|~~~|~~   |_=_-__|'  |[]|
+       |[] |_______\__|/_ _ |= |`.
+^V^    |-  /= __   __    /-\|= | :;
+       |= /- /\/  /\/   /=- \.-' :;
+       | /_.=========._/_.-._\  .:'
+       |= |-.'.- .'.- |  /|\ |.:'
+       \  |=|:|= |:| =| |~|~||'|
+        |~|-|:| -|:|  |-|~|~||=|      ^V^
+        |=|=|:|- |:|- | |~|~|| |
+        | |-_~__=_~__=|_^^^^^|/___
+        |-(=-=-=-=-=-(|=====/=_-=/\
+        | |=_-= _=- _=| -_=/=_-_/__\ 
+        | |- _ =_-  _-|=_- |]#| I II
+        |=|_/ \_-_= - |- = |]#| I II
+        | /  _/ \. -_=| =__|]!!!I_II!!
+       _|/-'/  ` \_/ \|/' _ ^^^^`.==_^.
+     _/  _/`-./`-; `-._ / \_'`. `. ===`.
+    / .-'  __/_   `.   _/.' .-' `-. ; ====;\
+   /.   `./    \ `. \ / -  /  .-'.' ====='  >
+  /  \  /  .-' `--.  / .' /  `-.' ======.' /
+0:{"P":null,"b":"OuCT3r_ARS1A0JBr_BubQ","p":"/personalwebsite","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/personalwebsite/_next/static/css/1b6d9da5b8dcd694.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"style":{"margin":0,"padding":0,"overflow":"hidden"},"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","main",null,{"style":{"backgroundColor":"#483A58","color":"#DCB6D5","height":"100vh","display":"flex","flexDirection":"row","justifyContent":"space-between","alignItems":"center","margin":0,"padding":"2rem"},"children":[["$","div",null,{"style":{"textAlign":"center","flex":1},"children":[["$","h1",null,{"children":"Lucy Acheson"}],["$","p",null,{"children":"Click below to look at my projects."}],["$","div",null,{"style":{"margin":"1rem 0"},"children":[["$","a",null,{"href":"https://github.com/lucyach","target":"_blank","rel":"noopener noreferrer","style":{"margin":"0.5rem","padding":"0.5rem 1rem","backgroundColor":"#DCB6D5","color":"#483A58","textDecoration":"none","borderRadius":"5px"},"children":"GitHub"}],["$","a",null,{"href":"https://linkedin.com/in/lucy-acheson","target":"_blank","rel":"noopener noreferrer","style":{"margin":"0.5rem","padding":"0.5rem 1rem","backgroundColor":"#DCB6D5","color":"#483A58","textDecoration":"none","borderRadius":"5px"},"children":"LinkedIn"}],["$","a",null,{"href":"https://thestoning.net","target":"_blank","rel":"noopener noreferrer","style":{"margin":"0.5rem","padding":"0.5rem 1rem","backgroundColor":"#DCB6D5","color":"#483A58","textDecoration":"none","borderRadius":"5px"},"children":"The Stoning Website"}],["$","a",null,{"href":"/resume.pdf","target":"_blank","rel":"noopener noreferrer","style":{"margin":"0.5rem","padding":"0.5rem 1rem","backgroundColor":"#DCB6D5","color":"#483A58","textDecoration":"none","borderRadius":"5px"},"children":"Resume"}],["$","a",null,{"href":"mailto:achesonlucy@gmail.com","style":{"margin":"0.5rem","padding":"0.5rem 1rem","backgroundColor":"#DCB6D5","color":"#483A58","textDecoration":"none","borderRadius":"5px"},"children":"Contact Me"}]]}],["$","$L4",null,{}]]}],["$","pre",null,{"style":{"fontFamily":"monospace","whiteSpace":"pre-wrap","color":"#DCB6D5","fontSize":"1.2rem","textAlign":"center","margin":0,"flex":1,"display":"flex","justifyContent":"center","alignItems":"center"},"children":"$5"}]]}],["$","$L6",null,{"children":"$L7"}],null,["$","$L8",null,{"children":["$L9","$La",["$","$Lb",null,{"promise":"$@c"}]]}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","3mFkxYCUY5r0NJMKxliuB",{"children":[["$","$Ld",null,{"children":"$Le"}],null]}],null]}],false]],"m":"$undefined","G":["$f","$undefined"],"s":false,"S":true}
+10:"$Sreact.suspense"
+11:I[4911,[],"AsyncMetadata"]
+7:["$","$10",null,{"fallback":null,"children":["$","$L11",null,{"promise":"$@12"}]}]
+a:null
+e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+9:null
+12:{"metadata":[["$","title","0",{"children":"Lucy Acheson"}],["$","meta","1",{"name":"description","content":"Lucy Acheson Personal Website."}]],"error":null,"digest":"$undefined"}
+c:{"metadata":"$12:metadata","error":null,"digest":"$undefined"}
