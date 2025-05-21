@@ -8,8 +8,9 @@
     "start": "next start && node app/ascii-art.js",
     "lint": "next lint",
     "predeploy": "npm run build",
-    "deploy": "npm run build"
+    "deploy": "gh-pages -d out"
   },
+  "homepage": "https://your-username.github.io/personalwebsite",
   "dependencies": {
     "next": "15.3.2",
     "react": "^19.0.0",
