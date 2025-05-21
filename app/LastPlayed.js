@@ -6,15 +6,19 @@ export default function LastPlayed() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    console.log("API Key:", process.env.REACT_APP_LASTFM_API_KEY); // Debugging
-
     const fetchLastTrack = async () => {
       try {
+        if (!process.env.NEXT_PUBLIC_LASTFM_API_KEY) {
+          throw new Error("Missing Last.fm API key");
+        }
+
         const response = await fetch(
-          `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=lucyacheson&api_key=${process.env.REACT_APP_LASTFM_API_KEY}&format=json&limit=1`
+          `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=lucyacheson&api_key=${process.env.NEXT_PUBLIC_LASTFM_API_KEY}&format=json&limit=1`
         );
 
-        if (!response.ok) throw new Error("Failed to fetch");
+        if (!response.ok) {
+          throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
+        }
 
         const data = await response.json();
         const track = data.recenttracks.track[0];
@@ -24,7 +28,7 @@ export default function LastPlayed() {
           artist: track.artist["#text"],
         });
       } catch (err) {
-        setError("Failed to load track info");
+        setError(err.message);
         console.error("LastFM Error:", err);
       }
     };
@@ -35,7 +39,9 @@ export default function LastPlayed() {
     return () => clearInterval(interval);
   }, []);
 
-  const trackText = lastTrack ? `${lastTrack.name} - ${lastTrack.artist}` : "";
+  const trackText = lastTrack
+    ? `${lastTrack.name} - ${lastTrack.artist}`
+    : "";
 
   return (
     <div
@@ -53,16 +59,14 @@ export default function LastPlayed() {
         fontFamily: "Comic Sans MS, Comic Sans, cursive",
       }}
     >
-      <h2 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>Last Played</h2>
+      <h2 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>Now Playing</h2>
       <div style={{ fontSize: "0.9rem", overflow: "hidden" }}>
         {error ? (
-          <span style={{ color: "red" }}>Failed to load track info</span>
+          <span style={{ color: "red" }}>{error}</span>
         ) : !lastTrack ? (
           <span>Loading...</span>
         ) : (
-          <Marquee gradient={false} speed={50}>
-            {trackText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          </Marquee>
+          <span>{trackText}</span>
         )}
       </div>
     </div>

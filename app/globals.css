@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Comic Sans MS", "Comic Sans", cursive; /* Comic Sans font */
+  font-family: "Comic Sans MS", "Comic Sans", cursive; /* Set Comic Sans globally */
   background-color: #333; /* Dark grey background */
   color: #fff; /* White text color */
 }

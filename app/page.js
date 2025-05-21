@@ -19,6 +19,7 @@ export default function HomePage() {
       <div style={{ textAlign: "center", flex: 1 }}>
         <h1>Lucy Acheson</h1>
         <p>Click below to look at my projects.</p>
+        <br></br>
         <div style={{ margin: "1rem 0" }}>
           <a
             href="https://github.com/lucyach"
@@ -66,7 +67,7 @@ export default function HomePage() {
             The Stoning Website
           </a>
           <a
-            href="/resume.pdf" // Updated path to the resume file
+            href={`${process.env.NODE_ENV === 'production' ? '/personalwebsite' : ''}/resume.pdf`} // Adjusted path for deployment
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -98,7 +99,7 @@ export default function HomePage() {
       </div>
       <pre
         style={{
-          fontFamily: "monospace",
+          fontFamily: "monospace", // Set font to monospace for ASCII art
           whiteSpace: "pre-wrap",
           color: "#DCB6D5", // Updated ASCII art color
           fontSize: "1.2rem",
@@ -106,7 +107,7 @@ export default function HomePage() {
           margin: 0,
           flex: 1, // Allow ASCII art to take equal space
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "flex-start", // Align ASCII art to the left
           alignItems: "center",
         }}
       >
