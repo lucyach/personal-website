@@ -1,9 +1,41 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function LastPlayed() {
   const [lastTrack, setLastTrack] = useState(null);
   const [error, setError] = useState(null);
+  // Default to top right corner
+  const [windowPos, setWindowPos] = useState({ 
+    x: typeof window !== 'undefined' ? window.innerWidth - 270 : 800, 
+    y: 20 
+  });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const windowRef = useRef(null);
+
+  const handleMouseDown = (e) => {
+    if (e.target.closest('.windows-titlebar')) {
+      setIsDragging(true);
+      const rect = windowRef.current.getBoundingClientRect();
+      setDragOffset({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      });
+    }
+  };
+
+  const handleMouseMove = (e) => {
+    if (isDragging) {
+      setWindowPos({
+        x: e.clientX - dragOffset.x,
+        y: e.clientY - dragOffset.y
+      });
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
 
   useEffect(() => {
     const fetchLastTrack = async () => {
@@ -51,29 +83,69 @@ export default function LastPlayed() {
 
   return (
     <div
+      ref={windowRef}
+      className="windows-app"
       style={{
-        position: "absolute",
-        top: "1rem",
-        right: "1rem",
-        backgroundColor: "#CF8BA9",
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-        border: "2px solid #8C6381",
-        borderRadius: "8px",
-        padding: "0.5rem",
-        maxWidth: "200px",
-        textAlign: "center",
-        fontFamily: "Comic Sans MS, Comic Sans, cursive",
+        position: "fixed",
+        left: `${windowPos.x}px`,
+        top: `${windowPos.y}px`,
+        width: "250px",
+        minHeight: "80px",
+        cursor: isDragging ? 'grabbing' : 'default',
+        zIndex: isDragging ? 1000 : 2
       }}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
     >
-      <h2 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>Lucy Is Now Playing</h2>
-      <div style={{ fontSize: "0.9rem", overflow: "hidden" }}>
-        {error ? (
-          <span style={{ color: "red" }}>{error}</span>
-        ) : !lastTrack ? (
-          <span>{error ? "Error loading track" : "Loading..."}</span>
-        ) : (
-          <span>{trackText}</span>
-        )}
+      {/* Titlebar */}
+      <div className="windows-titlebar" style={{ cursor: 'grab' }}>
+        <span>♪ Lucy Is Now Playing</span>
+        <div style={{ display: "flex", gap: "2px" }}>
+          <button style={{
+            width: "16px",
+            height: "14px",
+            backgroundColor: "#c0c0c0",
+            border: "1px outset #c0c0c0",
+            fontSize: "9px",
+            padding: "0",
+            cursor: "pointer"
+          }}>_</button>
+          <button style={{
+            width: "16px",
+            height: "14px",
+            backgroundColor: "#c0c0c0",
+            border: "1px outset #c0c0c0",
+            fontSize: "9px",
+            padding: "0",
+            cursor: "pointer"
+          }}>×</button>
+        </div>
+      </div>
+      
+      {/* Content Area */}
+      <div className="windows-content">
+        <div style={{
+          border: "1px inset #c0c0c0",
+          padding: "8px",
+          backgroundColor: "#ffffff",
+          textAlign: "center"
+        }}>
+          <div style={{ 
+            fontSize: "11px", 
+            fontFamily: "MS Sans Serif, sans-serif",
+            wordWrap: "break-word"
+          }}>
+            {error ? (
+              <span style={{ color: "red" }}>{error}</span>
+            ) : !lastTrack ? (
+              <span>{error ? "Error loading track" : "Loading..."}</span>
+            ) : (
+              <span>{trackText}</span>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
