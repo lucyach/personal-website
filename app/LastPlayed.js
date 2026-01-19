@@ -4,14 +4,26 @@ import { useState, useEffect, useRef } from "react";
 export default function LastPlayed() {
   const [lastTrack, setLastTrack] = useState(null);
   const [error, setError] = useState(null);
-  // Default to top right corner
-  const [windowPos, setWindowPos] = useState({ 
-    x: typeof window !== 'undefined' ? window.innerWidth - 270 : 800, 
-    y: 20 
-  });
+  // Use static initial value to prevent hydration mismatch
+  const [windowPos, setWindowPos] = useState({ x: 800, y: 20 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
+
+  // Update position after hydration to place in top-right corner
+  useEffect(() => {
+    const updatePosition = () => {
+      setWindowPos(prevPos => ({
+        x: window.innerWidth - 270,
+        y: prevPos.y // Keep the y position as set
+      }));
+    };
+    
+    updatePosition();
+    window.addEventListener('resize', updatePosition);
+    
+    return () => window.removeEventListener('resize', updatePosition);
+  }, []);
 
   const handleMouseDown = (e) => {
     if (e.target.closest('.windows-titlebar')) {

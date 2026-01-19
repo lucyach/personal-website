@@ -1,6 +1,8 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import LastPlayed from "./LastPlayed";
+import ProjectsWindow from "./myprojects";
+import PassionsWindow from "./mypassions";
 
 // Desktop Icon Component
 function DesktopIcon({ icon, iconType = "emoji", label, onClick, position }) {
@@ -172,16 +174,43 @@ function ResumeWindow({ isOpen, onClose, position, onDrag }) {
 }
 
 export default function HomePage() {
-  // Calculate center position (assuming typical viewport, will center regardless)
-  const [mainWindowPos, setMainWindowPos] = useState({ 
-    x: typeof window !== 'undefined' ? (window.innerWidth - 500) / 2 : 200, 
-    y: typeof window !== 'undefined' ? (window.innerHeight - 300) / 2 : 100 
-  });
+  // Use static initial values to prevent hydration mismatch
+  const [mainWindowPos, setMainWindowPos] = useState({ x: 200, y: 100 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [resumeWindowOpen, setResumeWindowOpen] = useState(false);
   const [resumeWindowPos, setResumeWindowPos] = useState({ x: 100, y: 100 });
+  const [projectsWindowOpen, setProjectsWindowOpen] = useState(false);
+  const [projectsWindowPos, setProjectsWindowPos] = useState({ x: 150, y: 150 });
+  const [passionsWindowOpen, setPassionsWindowOpen] = useState(false);
+  const [passionsWindowPos, setPassionsWindowPos] = useState({ x: 200, y: 200 });
   const mainWindowRef = useRef(null);
+
+  // Update position after hydration to center the window
+  useEffect(() => {
+    const updatePosition = () => {
+      setMainWindowPos({
+        x: (window.innerWidth - 500) / 2,
+        y: (window.innerHeight - 300) / 2
+      });
+      
+      // Position resume window on the right side
+      setResumeWindowPos({
+        x: window.innerWidth - 650, // 600px width + 50px margin from edge
+        y: 50 // 50px from top
+      });
+      
+      setPassionsWindowPos({
+        x: (window.innerWidth) / 4, 
+        y: 20 
+      });
+    };
+    
+    updatePosition();
+    window.addEventListener('resize', updatePosition);
+    
+    return () => window.removeEventListener('resize', updatePosition);
+  }, []);
 
   const handleMouseDown = (e) => {
     if (e.target.closest('.windows-titlebar')) {
@@ -287,35 +316,33 @@ export default function HomePage() {
               fontFamily: "MS Sans Serif, sans-serif",
               fontSize: "11px",
               margin: "5px 0"
-            }}>Check out the desktop icons for GitHub and LinkedIn!</p>
+            }}>Welcome to my Desktop :D</p>
             <p style={{
               fontFamily: "MS Sans Serif, sans-serif",
               fontSize: "11px",
               margin: "5px 0"
-            }}>Click below for more projects and contact info</p>
+            }}>Please enjoy!</p>
           </div>
         <br></br>
           <div style={{ margin: "10px 0", display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "5px" }}>
-            <a
-              href="https://thestoning.net"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setProjectsWindowOpen(true)}
               className="windows-button"
             >
               Lucy's Projects
-            </a>
+            </button>
             <button
               onClick={() => setResumeWindowOpen(true)}
               className="windows-button"
             >
               Lucy's Resume
             </button>
-            <a
-              href="mailto:achesonlucy@gmail.com"
+            <button
+              onClick={() => setPassionsWindowOpen(true)}
               className="windows-button"
             >
               Lucy's Passions
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -336,6 +363,22 @@ export default function HomePage() {
         position={{ x: 30, y: 140 }}
         onClick={() => window.open("https://linkedin.com/in/lucy-acheson", "_blank")}
       />
+
+      <DesktopIcon
+        icon="https://www.last.fm/static/images/lastfm_avatar_twitter.52a5d69a85ac.png"
+        iconType="image"
+        label="Lucy's Last.FM"
+        position={{ x: 30, y: 250 }}
+        onClick={() => window.open("https://www.last.fm/user/lucyacheson", "_blank")}
+      />
+
+      <DesktopIcon
+        icon="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Rate_Your_Music_logo.svg/250px-Rate_Your_Music_logo.svg.png"
+        iconType="image"
+        label="Lucy's Rate Your Music"
+        position={{ x: 30, y: 360 }}
+        onClick={() => window.open("https://rateyourmusic.com/~lucy4", "_blank")}
+      />
       
       <LastPlayed />
       
@@ -344,6 +387,20 @@ export default function HomePage() {
         onClose={() => setResumeWindowOpen(false)}
         position={resumeWindowPos}
         onDrag={setResumeWindowPos}
+      />
+      
+      <ProjectsWindow 
+        isOpen={projectsWindowOpen}
+        onClose={() => setProjectsWindowOpen(false)}
+        position={projectsWindowPos}
+        onDrag={setProjectsWindowPos}
+      />
+      
+      <PassionsWindow 
+        isOpen={passionsWindowOpen}
+        onClose={() => setPassionsWindowOpen(false)}
+        position={passionsWindowPos}
+        onDrag={setPassionsWindowPos}
       />
     </main>
   );
