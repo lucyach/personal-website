@@ -2,7 +2,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "Lucy Acheson",
-  description: "Lucy Acheson Personal Website.",
+  description: "Lucy Acheson Personal Website",
 };
 
 export default function RootLayout({ children }) {
