@@ -10,7 +10,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d out"
   },
-  "homepage": "https://lucyach.github.io/personalwebsite",
+  "homepage": "https://lucyach.github.io/personal-website",
   "dependencies": {
     "next": "^16.1.6",
     "react": "^19.0.0",
