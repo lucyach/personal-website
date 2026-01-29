@@ -55,35 +55,12 @@ export default function ProjectsWindow({ isOpen, onClose, position, onDrag }) {
       <div className="windows-titlebar" style={{ cursor: 'grab' }}>
         <span>💻 Lucy's Projects</span>
         <div style={{ display: "flex", gap: "2px" }}>
-          <button style={{
-            width: "16px",
-            height: "14px",
-            backgroundColor: "#c0c0c0",
-            border: "1px outset #c0c0c0",
-            fontSize: "9px",
-            padding: "0",
-            cursor: "pointer"
-          }}>_</button>
-          <button style={{
-            width: "16px",
-            height: "14px",
-            backgroundColor: "#c0c0c0",
-            border: "1px outset #c0c0c0",
-            fontSize: "9px",
-            padding: "0",
-            cursor: "pointer"
-          }}>□</button>
+          <button className="windows-button" style={{ width: "16px", height: "14px", fontSize: "9px", padding: "0" }}>_</button>
+          <button className="windows-button" style={{ width: "16px", height: "14px", fontSize: "9px", padding: "0" }}>□</button>
           <button 
             onClick={onClose}
-            style={{
-              width: "16px",
-              height: "14px",
-              backgroundColor: "#c0c0c0",
-              border: "1px outset #c0c0c0",
-              fontSize: "9px",
-              padding: "0",
-              cursor: "pointer"
-            }}>×</button>
+            className="windows-button"
+            style={{ width: "16px", height: "14px", fontSize: "9px", padding: "0" }}>×</button>
         </div>
       </div>
       

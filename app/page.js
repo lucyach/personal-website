@@ -124,42 +124,19 @@ function ResumeWindow({ isOpen, onClose, position, onDrag }) {
       <div className="windows-titlebar" style={{ cursor: 'grab' }}>
         <span>📄 Lucy Acheson - Resume.pdf</span>
         <div style={{ display: "flex", gap: "2px" }}>
-          <button style={{
-            width: "16px",
-            height: "14px",
-            backgroundColor: "#c0c0c0",
-            border: "1px outset #c0c0c0",
-            fontSize: "9px",
-            padding: "0",
-            cursor: "pointer"
-          }}>_</button>
-          <button style={{
-            width: "16px",
-            height: "14px",
-            backgroundColor: "#c0c0c0",
-            border: "1px outset #c0c0c0",
-            fontSize: "9px",
-            padding: "0",
-            cursor: "pointer"
-          }}>□</button>
+          <button className="windows-button" style={{ width: "16px", height: "14px", fontSize: "9px", padding: "0" }}>_</button>
+          <button className="windows-button" style={{ width: "16px", height: "14px", fontSize: "9px", padding: "0" }}>□</button>
           <button 
             onClick={onClose}
-            style={{
-              width: "16px",
-              height: "14px",
-              backgroundColor: "#c0c0c0",
-              border: "1px outset #c0c0c0",
-              fontSize: "9px",
-              padding: "0",
-              cursor: "pointer"
-            }}>×</button>
+            className="windows-button"
+            style={{ width: "16px", height: "14px", fontSize: "9px", padding: "0" }}>×</button>
         </div>
       </div>
       
       {/* Content Area with PDF */}
       <div className="windows-content" style={{ height: "calc(100% - 20px)", padding: "4px" }}>
         <iframe
-          src={`${process.env.NODE_ENV === 'production' ? '/personalwebsite' : ''}/resume.pdf`}
+          src={`${process.env.NODE_ENV === 'production' ? '/personal-website' : ''}/resume.pdf`}
           style={{
             width: "100%",
             height: "100%",
@@ -269,33 +246,9 @@ export default function HomePage() {
         <div className="windows-titlebar" style={{ cursor: 'grab' }}>
           <span>Lucy Acheson - Personal Website</span>
           <div style={{ display: "flex", gap: "2px" }}>
-            <button style={{
-              width: "16px",
-              height: "14px",
-              backgroundColor: "#c0c0c0",
-              border: "1px outset #c0c0c0",
-              fontSize: "9px",
-              padding: "0",
-              cursor: "pointer"
-            }}>_</button>
-            <button style={{
-              width: "16px",
-              height: "14px",
-              backgroundColor: "#c0c0c0",
-              border: "1px outset #c0c0c0",
-              fontSize: "9px",
-              padding: "0",
-              cursor: "pointer"
-            }}>□</button>
-            <button style={{
-              width: "16px",
-              height: "14px",
-              backgroundColor: "#c0c0c0",
-              border: "1px outset #c0c0c0",
-              fontSize: "9px",
-              padding: "0",
-              cursor: "pointer"
-            }}>×</button>
+            <button className="windows-button" style={{ width: "16px", height: "14px", fontSize: "9px", padding: "0" }}>_</button>
+            <button className="windows-button" style={{ width: "16px", height: "14px", fontSize: "9px", padding: "0" }}>□</button>
+            <button className="windows-button" style={{ width: "16px", height: "14px", fontSize: "9px", padding: "0" }}>×</button>
           </div>
         </div>
         {/* Content Area */}
