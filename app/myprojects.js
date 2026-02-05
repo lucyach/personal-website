@@ -70,7 +70,7 @@ export default function ProjectsWindow({ isOpen, onClose, position, onDrag }) {
           border: "1px inset #c0c0c0",
           padding: "10px",
           backgroundColor: "#ffffff",
-          height: "calc(100% - 20px)"
+          minHeight: "calc(100% - 20px)"
         }}>
           <h2 style={{
             fontFamily: "MS Sans Serif, sans-serif",
@@ -115,6 +115,16 @@ export default function ProjectsWindow({ isOpen, onClose, position, onDrag }) {
                     <button 
                         className="windows-button"
                         onClick={() => window.open("https://github.com/lucyach/automodDiscordBot", "_blank")}
+                        style={{ marginRight: "5px" }}
+                    >
+                        Check out the GitHub repo
+                    </button>
+                </div>
+                <li style={{ margin: "5px 0" }}><b>RYM Plus.</b> I am an avid user of Rate Your Music, where users can log and rate albums. It's old internet and unstyled HTML is charming and classy in its own right, and was part of my inspiration for the design of this website. However, there are many things about this website I wish were modern. So I built a Chrome extension to address those things! Now I have made browsing Rate Your Music much more enjoyable, without removing much of the classic styling. Soon, I will make it available on the Chrome extension store. For now, you can check out the GitHub repo.</li>
+                <div style={{ margin: "10px 0" }}>
+                    <button 
+                        className="windows-button"
+                        onClick={() => window.open("https://github.com/lucyach/rym-plus", "_blank")}
                         style={{ marginRight: "5px" }}
                     >
                         Check out the GitHub repo
