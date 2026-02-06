@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 export default function LastPlayed() {
   const [lastTrack, setLastTrack] = useState(null);
   const [error, setError] = useState(null);
+  const [minutesAgo, setMinutesAgo] = useState(null);
   // Use static initial value to prevent hydration mismatch
   const [windowPos, setWindowPos] = useState({ x: 800, y: 20 });
   const [isDragging, setIsDragging] = useState(false);
@@ -49,6 +50,39 @@ export default function LastPlayed() {
     setIsDragging(false);
   };
 
+  const calculateMinutesAgo = (timestamp) => {
+    if (!timestamp) return null;
+    const now = Date.now();
+    const trackTime = timestamp * 1000; // Convert Unix timestamp to milliseconds
+    const diffMinutes = Math.floor((now - trackTime) / (1000 * 60));
+    
+    if (diffMinutes < 1) return "just now. Powered by Last.fm";
+    if (diffMinutes === 1) return "1 minute ago. Powered by Last.fm";
+    if (diffMinutes < 60) return `${diffMinutes} minutes ago. Powered by Last.fm`;
+    
+    const hours = Math.floor(diffMinutes / 60);
+    if (hours === 1) return "1 hour ago. Powered by Last.fm";
+    if (hours < 24) return `${hours} hours ago. Powered by Last.fm`;
+    
+    const days = Math.floor(hours / 24);
+    if (days === 1) return "1 day ago. Powered by Last.fm";
+    return `${days} days ago. Powered by Last.fm`;
+  };
+
+  // Update minutes ago display every minute
+  useEffect(() => {
+    if (!lastTrack?.timestamp) return;
+    
+    const updateMinutes = () => {
+      setMinutesAgo(calculateMinutesAgo(lastTrack.timestamp));
+    };
+    
+    updateMinutes(); // Update immediately
+    const interval = setInterval(updateMinutes, 60000); // Update every minute
+    
+    return () => clearInterval(interval);
+  }, [lastTrack?.timestamp]);
+
   useEffect(() => {
     const fetchLastTrack = async () => {
       try {
@@ -76,6 +110,7 @@ export default function LastPlayed() {
         setLastTrack({
           name: track.name,
           artist: track.artist["#text"],
+          timestamp: track.date ? parseInt(track.date.uts) : null
         });
       } catch (err) {
         setError(err.message);
@@ -138,7 +173,20 @@ export default function LastPlayed() {
             ) : !lastTrack ? (
               <span>{error ? "Error loading track" : "Loading..."}</span>
             ) : (
-              <span>{trackText}</span>
+              <div>
+                <div style={{ marginBottom: "4px" }}>
+                  <strong>{trackText}</strong>
+                </div>
+                {minutesAgo && (
+                  <div style={{ 
+                    fontSize: "10px", 
+                    color: "#666666",
+                    fontStyle: "italic" 
+                  }}>
+                    {minutesAgo}
+                  </div>
+                )}
+              </div>
             )}
           </div>
         </div>
