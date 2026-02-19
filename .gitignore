@@ -16,9 +16,21 @@
 # next.js
 /.next/
 /out/
+*.tsbuildinfo
 
 # production
 /build
+/dist
+
+# GitHub Pages deployment artifacts
+.nojekyll
+404.html
+__next.*
+_next/
+
+# Build artifacts that might appear in working directory
+*.css.map
+*.js.map
 
 # misc
 .DS_Store

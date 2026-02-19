@@ -10,6 +10,18 @@ body {
   overflow: auto;
 }
 
+/* Ensure consistent rendering across environments */
+* {
+  box-sizing: border-box;
+}
+
+/* Prevent layout shifts during deployment */
+html, body {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .windows-app {
   background-color: #c0c0c0;
   border: 2px outset #c0c0c0;

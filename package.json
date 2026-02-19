@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "cross-env NODE_ENV=production next build",
     "start": "next start && node app/ascii-art.js",
     "lint": "next lint",
-    "predeploy": "npm run build && echo. > out/.nojekyll",
-    "deploy": "gh-pages -d out"
+    "clean": "rimraf .next out",
+    "predeploy": "npm run clean && npm run build && echo. > out/.nojekyll",
+    "deploy": "gh-pages -d out",
+    "deploy:safe": "git clean -fd && npm run predeploy && npm run deploy"
   },
   "homepage": "https://lucyach.github.io/personal-website",
   "dependencies": {
@@ -17,6 +19,8 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "cross-env": "^10.1.0",
+    "gh-pages": "^6.3.0",
+    "rimraf": "^6.1.3"
   }
 }
