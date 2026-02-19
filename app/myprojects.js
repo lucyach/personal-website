@@ -100,6 +100,16 @@ export default function ProjectsWindow({ isOpen, onClose, position, onDrag }) {
                         Visit The Stoning
                     </button>
                 </div>
+                <li style={{ margin: "5px 0" }}><b>RYM Plus.</b> I am an avid user of Rate Your Music, where users can log and rate albums. It's old internet and unstyled HTML is charming and classy in its own right, and was part of my inspiration for the design of this website. However, there are many things about this website I wish were modern. So I built a Chrome extension to address those things! Now I have made browsing Rate Your Music much more enjoyable, without removing much of the classic styling.</li>
+                <div style={{ margin: "10px 0" }}>
+                    <button 
+                        className="windows-button"
+                        onClick={() => window.open("https://chromewebstore.google.com/detail/rym-plus/ommnhcokelalcfhicjnnhoecfmafipnh?authuser=0&hl=en", "_blank")}
+                        style={{ marginRight: "5px" }}
+                    >
+                        View it on the Chrome Web Store
+                    </button>
+                </div>
                 <li style={{ margin: "5px 0" }}><b>Automated DJ Setlist Generator.</b> I love DJing in my free time! One day, I was trying to make a DJ set, sorting my library by key and BPM and thought to myself, <i>wow, I bet I could automate this process!</i> So I made a Python program that takes the BPM and key data from an mp3 file and sorts your library by which songs line up the best, according to math and music theory!</li>
                 <div style={{ margin: "10px 0" }}>
                     <button 
@@ -118,16 +128,6 @@ export default function ProjectsWindow({ isOpen, onClose, position, onDrag }) {
                         style={{ marginRight: "5px" }}
                     >
                         Check out the GitHub repo
-                    </button>
-                </div>
-                <li style={{ margin: "5px 0" }}><b>RYM Plus.</b> I am an avid user of Rate Your Music, where users can log and rate albums. It's old internet and unstyled HTML is charming and classy in its own right, and was part of my inspiration for the design of this website. However, there are many things about this website I wish were modern. So I built a Chrome extension to address those things! Now I have made browsing Rate Your Music much more enjoyable, without removing much of the classic styling.</li>
-                <div style={{ margin: "10px 0" }}>
-                    <button 
-                        className="windows-button"
-                        onClick={() => window.open("https://chromewebstore.google.com/detail/rym-plus/ommnhcokelalcfhicjnnhoecfmafipnh?authuser=0&hl=en", "_blank")}
-                        style={{ marginRight: "5px" }}
-                    >
-                        View it on the Chrome Web Store
                     </button>
                 </div>
               </ul>
