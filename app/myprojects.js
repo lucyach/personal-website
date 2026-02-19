@@ -120,14 +120,14 @@ export default function ProjectsWindow({ isOpen, onClose, position, onDrag }) {
                         Check out the GitHub repo
                     </button>
                 </div>
-                <li style={{ margin: "5px 0" }}><b>RYM Plus.</b> I am an avid user of Rate Your Music, where users can log and rate albums. It's old internet and unstyled HTML is charming and classy in its own right, and was part of my inspiration for the design of this website. However, there are many things about this website I wish were modern. So I built a Chrome extension to address those things! Now I have made browsing Rate Your Music much more enjoyable, without removing much of the classic styling. Soon, I will make it available on the Chrome extension store. For now, you can check out the GitHub repo.</li>
+                <li style={{ margin: "5px 0" }}><b>RYM Plus.</b> I am an avid user of Rate Your Music, where users can log and rate albums. It's old internet and unstyled HTML is charming and classy in its own right, and was part of my inspiration for the design of this website. However, there are many things about this website I wish were modern. So I built a Chrome extension to address those things! Now I have made browsing Rate Your Music much more enjoyable, without removing much of the classic styling.</li>
                 <div style={{ margin: "10px 0" }}>
                     <button 
                         className="windows-button"
-                        onClick={() => window.open("https://github.com/lucyach/rym-plus", "_blank")}
+                        onClick={() => window.open("https://chromewebstore.google.com/detail/rym-plus/ommnhcokelalcfhicjnnhoecfmafipnh?authuser=0&hl=en", "_blank")}
                         style={{ marginRight: "5px" }}
                     >
-                        Check out the GitHub repo
+                        View it on the Chrome Web Store
                     </button>
                 </div>
               </ul>
