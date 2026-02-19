@@ -10,9 +10,9 @@
     "clean": "rimraf .next out",
     "clean:force": "rimraf .next out && git clean -fd || echo Cleanup completed with warnings",
     "predeploy": "npm run clean && npm run build && echo. > out/.nojekyll",
-    "deploy": "gh-pages -d out --dotfiles",
-    "deploy:safe": "npm run clean:force && npm run predeploy && (npm run deploy || echo Deployment completed with warnings)",
-    "deploy:force": "npm run clean:force && npm run predeploy && npm run deploy 2>nul || echo Deployment successful"
+    "deploy": "gh-pages -d out --dotfiles --dest .",
+    "deploy:safe": "npm run clean:force && npm run predeploy && npm run deploy",
+    "deploy:manual": "git subtree push --prefix=out origin gh-pages"
   },
   "homepage": "https://lucyach.github.io/personal-website",
   "dependencies": {
