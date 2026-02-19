@@ -76,6 +76,8 @@ export default function LastPlayed() {
         setLastTrack({
           name: track.name,
           artist: track.artist["#text"],
+          timestamp: track.date ? track.date.uts : null,
+          nowPlaying: track["@attr"] && track["@attr"].nowplaying === "true"
         });
       } catch (err) {
         setError(err.message);
@@ -92,6 +94,20 @@ export default function LastPlayed() {
   const trackText = lastTrack
     ? `${lastTrack.name} - ${lastTrack.artist}`
     : "";
+
+  const getTimeAgo = (timestamp) => {
+    if (!timestamp || lastTrack?.nowPlaying) return "";
+    const now = Math.floor(Date.now() / 1000);
+    const diff = now - parseInt(timestamp);
+    const minutes = Math.floor(diff / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+    
+    if (days > 0) return `${days} day${days > 1 ? 's' : ''} ago`;
+    if (hours > 0) return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+    if (minutes > 0) return `${minutes} min ago`;
+    return "Just now";
+  };
 
   return (
     <div
@@ -138,7 +154,19 @@ export default function LastPlayed() {
             ) : !lastTrack ? (
               <span>{error ? "Error loading track" : "Loading..."}</span>
             ) : (
-              <span>{trackText}</span>
+              <>
+                <div style={{ marginBottom: "4px" }}>
+                  <span>{trackText}</span>
+                </div>
+                <div style={{ 
+                  fontSize: "9px", 
+                  color: "#666",
+                  fontStyle: "italic"
+                }}>
+                  {lastTrack.nowPlaying ? "Now Playing" : getTimeAgo(lastTrack.timestamp)}
+                  . Powered by Last.fm
+                </div>
+              </>
             )}
           </div>
         </div>
